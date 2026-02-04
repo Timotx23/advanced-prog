@@ -4,9 +4,10 @@ def weighted_keyword_score(text: str, **weights) -> int:
     """
     Return the weighted keyword score of text using weights passed as kwargs.
     """
-    # TODO
-    pass
-
+    text=text+" " and text.lower()
+    weighted_score=reduce(lambda acc, x: acc+weights[x] if x in weights.keys() else acc+0,text.split(" "),0) 
+    return weighted_score
+   
 
 # Tests
 print(weighted_keyword_score("Hello hello world", hello=2, world=3))          # 7
