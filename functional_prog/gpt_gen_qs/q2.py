@@ -2,14 +2,12 @@ def zip_sum(*lists):
     """
     Return elementwise sums across all input lists.
     """
-    #iterative way
-    
+   
+    if len(lists) ==0:
+        return []
+    return list(map(lambda *args :sum(args), *lists) )
 
-
-
-    
-    #combine=list(map(lambda i,x: i=len(lists) x+lists[i],lists, ))
-    
+     
 
 
 # Tests
