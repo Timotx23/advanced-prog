@@ -5,15 +5,15 @@ some_name=lambda x,y: x*y #some name is technically not even needed, its a funct
 print(some_name(2,4))
 
 #best example usage of this lamba function
-numbers=[1,2,3,4,5,6]
+number=[1,2,3,4,5,6]
 
-squares=list(map(lambda x:x**2, numbers))
+squares=list(map(lambda x:x**2, number))
 #squares= var name
 # list -> Makes it return the values as a list (if list is not used u get a memory address)
 #map(function, iterable) -> function is the opperation you want to do. iterable is something like a list,dictionary, tuple etc. -> it returns the operation for each value in the iterable without needing a for loop. IT DOES NOT return a LIST thats why list is needed 
 print(squares)
 
-is_even=list(filter(lambda x: x%2==0, numbers))
+is_even=list(filter(lambda x: x%2==0, number))
 #is_even = var name
 #list -> same as before
 #filter(function, iterable) -> checks each value in the iterable to checks if it is even or not and only stores the values that are even 
@@ -22,7 +22,7 @@ print(is_even)
 
 result=sum(
     list(map(lambda x: x**2,#this squares all numbers that the filter allows to filter through
-             filter(lambda x: x%2==0, numbers) ))) #this filters all even number
+             filter(lambda x: x%2==0, number) ))) #this filters all even number
 #or
 result=sum(list(map(lambda x: x**2, is_even))) #This says the same thing but its using variables makes it a bit easier to read and understand 
 #or
@@ -50,3 +50,17 @@ sum_of_nums=reduce(lambda acc, x: acc + x, numbers)
 #acc= starting value it always starts at index 0 or in this case 1 
 #x -> is the iterator ie the value that comes next
 print(sum_of_nums)
+#other examples of reduce
+strs=reduce(lambda a, b: a + "-" + b, ["a", "b", "c"])
+lst=reduce(lambda a, b: a + b, [1, 2, 3])
+print("Reduce with strs", strs)
+print("Reduce with lst", lst)
+number_ops=[
+reduce(lambda a, b: a + b, numbers),
+reduce(lambda a, b: a * b, numbers),
+reduce(lambda a, b: a if a > b else b, numbers),
+]
+print("Reduce with other number opperations", number_ops)
+cool_looking_code=reduce(lambda acc, x: acc if x % 2 == 0 else acc + x, numbers, 0)
+print("Cool looking code ", cool_looking_code)
+
