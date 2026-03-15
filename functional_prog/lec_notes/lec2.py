@@ -22,7 +22,14 @@ def say_hello(name):
     print(f"Hello! {name}")
 
 say_hello("Timo")
-
+# Parameterized Decorators 
+#
+def decorator(param):#First layer gets the parameter
+    def actual_decorator(func):# gets tje actual function
+        def wrapper(*args, **kwargs):# gets the arguments
+            return func(*args, **kwargs)
+        return wrapper
+    return actual_decorator
 #currying/ Partial functions
 #currying breaks down a single function into multiple which allows each part of the function to be very simple
 #Use for modularity of code, code reusability, lazy eval, functional composition, enhanced readability (appearently)
@@ -59,6 +66,7 @@ print(f"Black friday price: ${apply_black_friday(fridge_price)}") #See how the i
 from functools import partial
 def operation(x,y,z):
     return x*(y+z)
+
 doublesum=partial(operation,2) #this is a partial function
 print(doublesum(2,2))#example of a double function -> the operation function takes 3 inputs and in the doublesum i provided 2 already and now 2,2 =3 vars meaning the opperation can be done
 
@@ -104,3 +112,4 @@ def my_range(start, end):
 nums= my_range(1,10)
 for num in nums:
     print(num)
+#Lazy evalution

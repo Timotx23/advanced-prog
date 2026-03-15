@@ -1,4 +1,28 @@
 from functools import reduce
+#First class functions
+# def: A function that can be treated like any other variable -> can be passed to other functions, asigned values, be returned from other functions
+def greet(name):
+    return f"Hi {name}"
+
+x = greet           # 1. assign to variable
+print(x("Ana"))     # 2. call via variable
+
+def apply(f, value):   # 3. pass as argument
+    return f(value)
+
+print(apply(greet, "Bob"))# example of a first class function
+
+#higher order functions
+#def: A function that takes another function as a variable/ returns a function
+def square(x):
+    return x * x
+
+def apply(f, value):
+    return f(value)
+
+print(apply(square, 4))  # 16 # takes in the fucntion square as a variable
+
+
 #Lamda functions
 
 some_name=lambda x,y: x*y #some name is technically not even needed, its a function that doesnt need to be asigned and will complete the opperation that is declared after the : and takes as input the x,y in this case but it can be as many/ as little inputs as i want
