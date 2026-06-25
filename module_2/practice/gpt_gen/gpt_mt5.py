@@ -23,6 +23,7 @@ class OrderProcessor:
                 self.input_queue.task_done()
                 self.output_queue.put(item)
                 break
+            
             name = item[0]
             total = item [1]
             quant = item[2]

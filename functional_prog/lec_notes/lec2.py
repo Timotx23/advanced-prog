@@ -25,7 +25,7 @@ say_hello("Timo")
 # Parameterized Decorators 
 #
 def decorator(param):#First layer gets the parameter
-    def actual_decorator(func):# gets tje actual function
+    def actual_decorator(func):# gets the actual function
         def wrapper(*args, **kwargs):# gets the arguments
             return func(*args, **kwargs)
         return wrapper
